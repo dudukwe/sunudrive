@@ -1,0 +1,286 @@
+### 1. Register a new user
+POST http://localhost:8000/api/v1/auth/register/
+Content-Type: application/json
+
+{
+  "cellphone": "774567890",
+  "password": "passer",
+  "password2": "passer",
+  "email": "emdy@dic.sn",
+  "first_name": "Medoune",
+  "last_name": "DIOP"
+}
+
+### 1. Register a new user
+POST http://localhost:8000/api/v1/auth/register/
+Content-Type: application/json
+
+{
+  "cellphone": "789876543",
+  "password": "passer",
+  "password2": "passer",
+  "email": "aminata@dic.sn",
+  "first_name": "Aminata",
+  "last_name": "Fianyah"
+}
+
+### 2. Log in and get access and refresh tokens
+POST http://localhost:8000/api/v1/auth/login/
+Content-Type: application/json
+
+{
+  "identifier": "emdy@dic.sn",
+  "password": "passer"
+}
+
+### 2. Log in withe phone number
+POST http://localhost:8000/api/v1/auth/login/
+Content-Type: application/json
+
+{
+  "identifier": "774567890",
+  "password": "passer"
+}
+
+### 3. Refresh the access token using the refresh token
+POST http://localhost:8000/api/v1/auth/refresh/
+Content-Type: application/json
+
+{
+  "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0ODIyMzkzOSwiaWF0IjoxNzQ4MTM3NTM5LCJqdGkiOiIzMjgzMGVjNTU5NTY0YmY2OWE0NWQzMWE2ZTA2MDE0ZiIsInVzZXJfaWQiOjF9.7FufjBJcRX9cbDXrSzMkiFLtn0b6_pdhOSmjBwEho0c"
+}
+
+### 4. Get user profile information
+GET http://localhost:8000/api/v1/auth/profile/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### 5. Update user profile information
+PUT http://localhost:8000/api/v1/auth/profile/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3NzM2MjAxLCJpYXQiOjE3NDc2NDk3NzEsImp0aSI6IjYwZThlOTc2OGZjODQwNDliYmRhMDMzMzA3ODA0YmY3IiwidXNlcl9pZCI6NCwidXNlcm5hbWUiOiJsb3VmYSIsImVtYWlsIjoibG91ZmFAZGljLnNuIiwibmFtZSI6IkZhbG91IEphYXcifQ.xDiiU2fWxGYRH9ul4x_R7CkH1CmMpe37UcVwQJV55xQ
+
+{
+  "first_name": "Falilou",
+  "last_name": "DIAW"
+}
+
+
+###  Upload a new file
+  # Voir api.py file
+
+###  List all files
+GET http://localhost:8000/api/v1/files/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+###  Get file details:
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Download file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/download/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Preview file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/preview/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Delete (move to trash)
+POST http://localhost:8000/api/v1/files/682b2a7bc49fd96c8d2ef57a/trash/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### List trashed files
+GET http://localhost:8000/api/v1/trash/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Restore file from trash
+POST http://localhost:8000/api/v1/files/682b2a7bc49fd96c8d2ef57a/restore/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Empty trash
+DELETE   http://localhost:8000/api/v1/trash/empty/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Permanently delete file (not implemented yet)
+DELETE http://localhost:8000/api/v1/files/682b2a7bc49fd96c8d2ef57a/permanent/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3NzM2ODM5LCJpYXQiOjE3NDc2NTA0MzksImp0aSI6IjZiNDUxYzcxNzdmMTRlMzQ5N2E3NDA1NGUwYjVkMjcxIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJuYW1lIjoiICJ9.k2MBp1VGlYx6pDxakby0N7Ws_aGkcoMOCmyS67sYyU0
+
+### Create a new folder
+POST http://localhost:8000/api/v1/folders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+{
+  "name": "mesdocuments",
+  "parent_folder": null
+}
+
+
+### Create a subfolder
+POST http://localhost:8000/api/v1/folders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+{
+  "name": "anOhterSubfoler",
+  "parent_folder": "6832fe370c81680f7cfa71e6"
+}
+
+### List folders
+GET http://localhost:8000/api/v1/folders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### List subfoders 
+GET http://localhost:8000/api/v1/folders/?parent_folder=6832fe370c81680f7cfa71e6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Get folder details
+GET http://localhost:8000/api/v1/folders/6832fe370c81680f7cfa71e6/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Get folder files
+GET http://localhost:8000/api/v1/folders/6832fe370c81680f7cfa71e6/files
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Delete folder
+DELETE http://localhost:8000/api/v1/folders/682b58db7639d662d86c51f8/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+
+### Share a file (grand permission)
+POST http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/share/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+
+{
+  "email": "emdy@dic.sn",
+  "access_level": "edit"
+}
+### Delete permission 
+POST http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/revoke/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+{
+  "email": "emdy@dic.sn"
+}
+
+### Show permission on a file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/permissions/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+### Show shared files (files that others shared to me)
+GET http://localhost:8000/api/v1/shared/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzY4MDg4LCJpYXQiOjE3NDgxNzYwODgsImp0aSI6IjZhZWU4MDBhNWIzNDRmMTg4YjU1OTNiNTQ2M2I3YmJjIiwidXNlcl9pZCI6M30.CoaoavU10dck1ZPtPLCfUVtvAy6Xuk5wtPMa53yjyYY
+Content-Type: application/json
+
+### Toggle favorite status for a file (add/remove)
+POST http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/favorite/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzY4MDg4LCJpYXQiOjE3NDgxNzYwODgsImp0aSI6IjZhZWU4MDBhNWIzNDRmMTg4YjU1OTNiNTQ2M2I3YmJjIiwidXNlcl9pZCI6M30.CoaoavU10dck1ZPtPLCfUVtvAy6Xuk5wtPMa53yjyYY
+Content-Type: application/json
+
+### List all favorite files of the user
+GET http://localhost:8000/api/v1/favorites/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzY4MDg4LCJpYXQiOjE3NDgxNzYwODgsImp0aSI6IjZhZWU4MDBhNWIzNDRmMTg4YjU1OTNiNTQ2M2I3YmJjIiwidXNlcl9pZCI6M30.CoaoavU10dck1ZPtPLCfUVtvAy6Xuk5wtPMa53yjyYY
+Content-Type: application/json
+
+### List comments for a file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/comments/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### Add a comment to a file
+POST http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/comments/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+{
+  "text": "Un autre commentaire."
+}
+
+
+### Retrieve a specific comment on a file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/comments/abc123commentid/
+Authorization: Bearer <ACCESS_TOKEN>
+Content-Type: application/json
+
+### List versions of a file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/versions/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### Retrieve a specific version of a file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/versions/811880c6-90cc-4073-9d9a-bb2a3d79ace3/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+### List activity on a specific file
+GET http://localhost:8000/api/v1/files/6832fe6c0c81680f7cfa71e7/activity/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### List all recent activity of the user
+GET http://localhost:8000/api/v1/activity/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### List recent files accessed or uploaded by the user
+GET http://localhost:8000/api/v1/recent/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### List user notifications
+GET http://localhost:8000/api/v1/notifications/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### Search across files and folders
+GET http://localhost:8000/api/v1/search/?q=hello
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+### Get all available tags
+GET http://localhost:8000/api/v1/tags/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+
+### Get user file statistics
+GET http://localhost:8000/api/v1/statistics/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+Content-Type: application/json
+
+### Filter by date 
+### - All files filtered by date
+GET http://localhost:8000/api/v1/files/sort/date/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Files of a sepcific folder filtered by date 
+GET http://localhost:8000/api/v1/files/sort/date/?folder_id=6832fe370c81680f7cfa71e6&order=asc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+
+### Filter by type 
+### Files of a sepcific folder filtered by type (A-Z)
+GET http://localhost:8000/api/v1/files/sort/type/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Files of a sepcific folder filtered by type (Z-A)
+GET http://localhost:8000/api/v1/files/sort/type/?folder_id=6832fe370c81680f7cfa71e6&order=desc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+
+### Filter by size 
+###  All files filtered by size (big files first)
+GET http://localhost:8000/api/v1/files/sort/size/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
+
+### Files of a folder filtered by size (small files first)
+GET http://localhost:8000/api/v1/files/sort/size/?folder_id=6832fe370c81680f7cfa71e6&order=asc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwNzYzMjY5LCJpYXQiOjE3NDgxMzc1MzksImp0aSI6ImM5ODk1ZmVlMjdiNzQ2NzBiODk0ZGFkNGNmYTU3NWM3IiwidXNlcl9pZCI6MX0.m-WQK8UdI0hVDDqhrpR874eT8gVS_68-0EpMdxCPbDg
